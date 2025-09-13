@@ -4,6 +4,8 @@ This repository contains the personal portfolio websites of the GenesisBook team
 
 ## About the Project
 
+<img width="3368" height="2380" alt="image" src="https://github.com/user-attachments/assets/7f88bdde-2f6f-4fff-b454-254795f3206a" />
+
 This project is a collection of individual portfolio websites created by a team of four UX design students. The entire project, from learning the necessary coding skills to designing and developing the final websites, was completed from scratch within one month. Each team member first created their own portfolio, after which the team collaborated to integrate them into a single, cohesive website, along with shared pages like the "About Us" and contact sections.
 
 ## Team Members
