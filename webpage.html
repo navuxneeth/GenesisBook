@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	
+  	<link rel="stylesheet" href="dump 2/elements.css" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" />
+  	
+  	<style>
+          body {
+              font-family: 'Montserrat', sans-serif;
+              color: #202e6e;
+          }
+          /* Base styles */
+          .section, .section1, .section6 {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              text-align: left; /* Left align the text */
+              background-color: white; /* Set background color to white */
+          }
+          .section .container, .section1 .container1, .section6 .container-center {
+              max-width: 1200px;
+              width: 100%;
+          }
+          .hero-title, .at-our-studio {
+              text-align: left; /* Left align the text */
+              margin: 0; /* Remove auto margin */
+          }
+          .hero-content {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start; /* Align items to the start */
+              text-align: left; /* Left align the text */
+          }
+          .image-36-parent {
+              display: flex;
+              justify-content: center;
+              margin: 0 auto;
+          }
+          .footer-section {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              text-align: center;
+              background-color: white; /* Set background color to white */
+          }
+          .footer-section .content10, .footer-section .credits {
+              width: 100%;
+              max-width: 1200px;
+              margin: 0 auto;
+          }
+          .footer-section .divider {
+              display: none; /* Remove the blue line at the start of the footer */
+          }
+          .navbar {
+              border-bottom: 2px solid #202e6e; /* Add blue line below navbar */
+          }
+          /* Responsive styles */
+          @media (max-width: 1200px) {
+              .navbar {
+                  flex-direction: column;
+                  align-items: flex-start;
+              }
+              .navbar-menu {
+                  margin-top: 10px;
+              }
+              .hero-content {
+                  margin-left: 0;
+              }
+              .image-36-parent {
+                  width: 100%;
+              }
+              .footer-section .content10, .footer-section .credits {
+                  padding: 0 20px;
+              }
+          }
+          @media (max-width: 768px) {
+              .navbar {
+                  align-items: center;
+              }
+              .navbar-menu {
+                  flex-direction: column;
+                  align-items: center;
+              }
+              .hero-title, .at-our-studio {
+                  text-align: left;
+              }
+              .footer-section .content10, .footer-section .credits {
+                  padding: 0 10px;
+              }
+              .image-wrapper img, .image-wrapper6 img, .image-wrapper7 img, .image-wrapper8 img, .image-wrapper9 img, .image-wrapper3 img, .image-wrapper4 img, .image-icon3 {
+                  width: 100%;
+                  height: auto;
+              }
+              .hero-title, .at-our-studio, .round-button {
+                  margin-left: 0;
+              }
+          }
+          @media (max-width: 480px) {
+              .navbar-logo {
+                  flex-direction: column;
+                  align-items: center;
+              }
+              .navbar-menu {
+                  margin-top: 20px;
+              }
+              .hero-title, .at-our-studio {
+                  text-align: left;
+              }
+              .footer-section .content10, .footer-section .credits {
+                  padding: 0 5px;
+              }
+              .image-wrapper img, .image-wrapper6 img, .image-wrapper7 img, .image-wrapper8 img, .image-wrapper9 img, .image-wrapper3 img, .image-wrapper4 img, .image-icon3 {
+                  width: 100%;
+                  height: auto;
+              }
+              .hero-title, .at-our-studio, .round-button {
+                  margin-left: 0;
+              }
+          }
+          /* Add hover effect to all images except those on the first page */
+          .image-wrapper img:hover, .image-wrapper6 img:hover, .image-wrapper7 img:hover, .image-wrapper8 img:hover, .image-wrapper9 img:hover, .image-wrapper3 img:hover, .image-wrapper4 img:hover, .image-icon3:hover {
+              transform: scale(1.1); /* Example hover effect: scale the image */
+              transition: transform 0.3s ease-in-out; /* Smooth transition */   
+          }
+          /* Base styles for buttons */
+          .button, .button1 {
+              background-color: rgba(255, 255, 255, 0);
+              color: #202e6e;
+              border: 1px solid #202e6e;
+              padding: 10px 20px;
+              text-align: center;
+              cursor: pointer;
+              transition: background-color 0.3s ease, color 0.3s ease;
+          }
+
+          /* Hover effect for buttons */
+          .button:hover, .button1:hover {
+              background-color: #202e6e;
+              color: rgb(255, 255, 255);
+              border: 1px solid #202e6e;
+          }
+
+          /* Style for the round button */
+          .round-button {
+              width: 50px;
+              height: 50px;
+              background-color: #3b4988;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              cursor: pointer;
+          }
+
+          .round-button img {
+              width: 20px;
+              height: 20px;
+          }
+
+          /* New class for centered text */
+          .centered-text {
+              text-align: center;
+          }
+
+          /* Linear gradient background for Amara Lopez section */
+          .amara-lopez-section {
+              background: linear-gradient(to top, #202e6e7a, #ffffff);
+              padding: 20px;
+          }
+
+          /* Linear gradient background for Victorian Collection section */
+          .victorian-collection-section {
+              background: linear-gradient(to bottom, #202e6e7a, #ffffff);
+              padding: 20px;
+          }
+      </style>
+</head>
+<body>
+  	
+  	<div class="photography-portfolio">
+    		<div class="section">
+      			<div class="navbar">
+        				<div class="navbar-logo">
+          					<img class="logo-icon" alt="" src="Logo.png">
+          					
+          					<div class="capture-studio">Capture Studio</div>
+        				</div>
+        				<div class="navbar-menu">
+          					<div class="navbar-links">
+            						<div class="projects">Projects</div>
+            						<div class="portraits">Portraits</div>
+            						<div class="fashion">Fashion</div>
+            						<div class="fine-art">Fine Art</div>
+          					</div>
+          					<div class="button">
+            						<div class="contact">Contact</div>
+          					</div>
+        				</div>
+      			</div>
+      			<div class="container">
+        				<div class="hero-content">
+          					<div class="hero-title">
+            						<div class="we-capture-the-container">
+              							<span class="we">We </span>
+              							<span class="capture">Capture</span>
+              							<span class="we"> the World</span>
+            						</div>
+            						<div class="at-our-studio">At our studio, we don't just take pictures - we capture the world. Our passion goes beyond just snapping a photo - we strive to create images that tell a story, evoke emotions, and capture the essence of the world around us.</div>
+          					</div>
+          					<div class="round-button" id="video-button">
+            						<img class="vector-icon" alt="" src="Polygon 7.png">
+            						
+          					</div>
+        				</div>
+        				<div class="video-container" id="video-container" style="display: none;">
+                    <iframe id="youtube-video" width="560" height="315" src="https://www.youtube.com/embed/RZx0Jp31EaE?si=F3zre7yXTb76Ajh4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+        				<div class="image-36-parent">
+          					<img class="image-36-icon fade-in" alt="" src="image 36.png">
+          					
+          					<div class="group-child">
+          					</div>
+          					<div class="group-item">
+          					</div>
+          					<div class="group-inner">
+          					</div>
+        				</div>
+      			</div>
+    		</div>
+    		<div class="section1">
+      			<div class="container1">
+        				<div class="our-work">
+          					<span class="we">our </span>
+          					<span class="capture">work</span>
+        				</div>
+        				<div class="image-row">
+          					<div class="image-wrapper">
+            						<img class="image-icon" alt="" src="Image.png">
+            						
+            						<div class="image-text">
+              							<div class="div">2018</div>
+              							<div class="aisha-patel">Aisha Patel</div>
+            						</div>
+          					</div>
+          					<div class="image-wrapper">
+            						<img class="image-icon" alt="" src="Image (1).png">
+            						
+            						<div class="image-text">
+              							<div class="div">2021</div>
+              							<div class="aisha-patel">Isabella Costa</div>
+            						</div>
+          					</div>
+          					<div class="image-wrapper">
+            						<img class="image-icon" alt="" src="Frame 481568.png">
+            						
+            						<div class="image-text">
+              							<div class="div">2022</div>
+              							<div class="aisha-patel">Fatima Hassan</div>
+            						</div>
+          					</div>
+        				</div>
+        				<div class="button-wrapper">
+          					<div class="button1">
+            						<div class="projects">View all work</div>
+          					</div>
+        				</div>
+      			</div>
+    		</div>
+    		<div class="section2 amara-lopez-section">
+      			<div class="container2">
+        				<div class="content">
+          					<div class="content1">
+            						<div class="section-title">
+              							<div class="march-2022">March 2022</div>
+              							<div class="content2">
+                								<div class="gabriela-silva">Gabriela Silva</div>
+                								<div class="cras-semper-auctor">This portrait features a young woman with striking green eyes and dark curly hair adorned with dried flowers and twigs. She wears a thoughtful expression, her lips slightly parted and painted deep red, while her fingers gently touch her mouth. The soft lighting accentuates the texture of her skin, highlighting freckles and subtle shadows. The dark background enhances the subject’s presence, creating an almost classical, painterly aesthetic. The image exudes a sense of mystery and quiet intensity.
+												</div>
+                								<div class="actions">
+                  									<div class="button1">
+                    										<div class="projects">View case study</div>
+                  									</div>
+                								</div>
+              							</div>
+            						</div>
+          					</div>
+        				</div>
+        				<div class="image-wrapper3">
+          					<img class="image-icon3" alt="" src="Image Wrapper.png">
+          					
+        				</div>
+      			</div>
+    		</div>
+    		<div class="section2">
+      			<div class="container3">
+        				<div class="image-wrapper4">
+          					<img class="image-icon3" alt="" src="Image Wrapper (1).png">
+          					
+        				</div>
+        				<div class="container-center-inner">
+          					<div class="content4">
+            						<div class="section-title1">
+              							<div class="march-2022">Janurary 2010</div>
+              							<div class="content5">
+                								<div class="amara-lopez-parent">
+                  									<div class="amara-lopez">Amara Lopez</div>
+                  									<div class="tortor-aliquam-nulla">This portrait features a young woman with striking red curly hair and freckles, wearing a bold red turtleneck sweater. Her gaze is intense and direct, with a thoughtful expression as she gently rests her hand on her face. The warm, earthy tones of her hair and skin contrast beautifully with the deep blue-green background, creating a rich and moody aesthetic. The soft lighting enhances the texture of her freckles and curls, adding depth and a timeless, painterly quality to the image.</div>
+                								</div>
+              							</div>
+            						</div>
+            						<div class="actions1">
+              							<div class="button1">
+                								<div class="projects">View case study</div>
+              							</div>
+            						</div>
+          					</div>
+        				</div>
+      			</div>
+    		</div>
+    		<div class="section2 priya-patel-section">
+    <div class="container4">
+        <div class="content6">
+            <div class="content4">
+                <div class="section-title1">
+                    <div class="march-2022">September 2021</div>
+                    <div class="content8">
+                        <div class="priya-patel">Priya Patel</div>
+                        <div class="tortor-aliquam-nulla">This portrait captures a young girl with striking blue-green eyes and deep red lips, resting her face in her hands. Her dark hair is styled into two buns, and she wears a floral dress with delicate ruffles. Her expression is calm yet intense, with a gaze that feels both curious and introspective. The soft lighting accentuates the smoothness of her skin and the contrast between her features and the dark background, giving the image a rich, artistic quality.</div>
+                    </div>
+                </div>
+                <div class="actions1">
+                    <div class="button1">
+                        <div class="projects">View case study</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="image-wrapper4">
+            <img class="image-icon3" alt="" src="Image Wrapper (2).png">
+        </div>
+    </div>
+</div>
+    		<div class="section5 victorian-collection-section">
+      			<div class="container5">
+        				<div class="column">
+          					<div class="content9">
+            						<div class="march-2022">November 2022</div>
+            						<div class="victorian-collection">Victorian Collection</div>
+          					</div>
+        				</div>
+						<div class="images-container">
+							<div class="image-wrapper6">
+								<img class="image-icon6 fade-in" alt="" src="Image Wrapper (3).png">
+							</div>
+							<div class="image-wrapper7">
+								<img class="image-icon7 fade-in" alt="" src="Frame 481569.png">
+							</div>
+							<div class="image-wrapper8">
+								<img class="image-icon7 fade-in" alt="" src="Frame 481569 (2).png">
+							</div>
+							<div class="image-wrapper9">
+								<img class="image-icon7 fade-in" alt="" src="Frame 481569 (1).png">
+							</div>
+						</div>
+        				</div>
+        				<div class="actions3">
+          					<div class="button1">
+            						<div class="projects">View case study</div>
+          					</div>
+        				</div>
+      			</div>
+    		</div>
+    		<div class="section6">
+      			<div class="container-center">
+        				<div class="container-center-inner">
+          					<div class="capture-the-world-with-us-parent centered-text">
+            						<div class="capture-the-world-container">
+              							<span class="capture">Capture</span>
+              							<span class="we"> the world with us</span>
+            						</div>
+            						<div class="libero-justo-laoreet">At Capture Studios, we believe in the power of light, composition, and storytelling to transform ordinary scenes into extraordinary works of art. Whether it’s the quiet intensity of a gaze, the raw beauty of nature, or the vibrancy of urban life, our lens is always focused on capturing the essence of the moment. </div>
+          					</div>
+        				</div>
+      			</div>
+      			<div class="actions4">
+        				<div class="button1">
+          					<div class="projects">Contact us</div>
+        				</div>
+      			</div>
+    		</div>
+    		<div class="footer-section">
+      			<div class="content10">
+        				<div class="logo">
+          					<div class="navbar-logo">
+									<img class="logo-icon" alt="" src="Logo - Copy.png" style="max-width: 100%; height: auto;">
+            						
+            						<div class="capture-studio">Capture Studio</div>
+          					</div>
+        				</div>
+        				<div class="links">
+          					<div class="projects">Projects</div>
+          					<div class="projects">Portraits</div>
+          					<div class="projects">Fashion</div>
+          					<div class="projects">Fine Art</div>
+        				</div>
+        				<div class="social-links">
+          					<div class="icon-facebook">
+            						<img class="vector-icon2" alt="" src="Vector 1.png">
+            						
+          					</div>
+          					<div class="icon-instagram">
+            						<img class="vector-icon3" alt="" src="Vector 2.png">
+            						
+          					</div>
+          					<div class="icon-twitter">
+            						<img class="vector-icon4" alt="" src="Vector.png">
+            						
+          					</div>
+          					<div class="icon-instagram">
+            						<img class="vector-icon3" alt="" src="Vector3.png">
+            						
+          					</div>
+        				</div>
+      			</div>
+      			<div class="credits">
+        				<div class="row">
+          					<div class="projects">© 2023 Capture Studio. All rights reserved.</div>
+	<div class="footer-links">
+	<div class="projects">Privacy Policy</div>
+<div class="projects">Terms of Service</div>
+	<div class="projects">Cookies Settings</div>
+	</div>
+	</div>
+	</div>
+	</div>
+  	</div>
+  	<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll('.fade-in');
+
+    function checkVisibility() {
+        images.forEach(image => {
+            const rect = image.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                image.classList.add('visible');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', checkVisibility);
+    checkVisibility(); // Initial check
+});
+
+document.getElementById('video-button').addEventListener('click', function() {
+    window.open('https://www.youtube.com/watch?v=RZx0Jp31EaE?si=m6XjTBWUtSvx0jhv', '_blank');
+});
+</script>
+  	
+</body>
+</html>

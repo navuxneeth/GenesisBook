@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GO Serve Application – Information Architecture</title>
+  <style>
+    /* ─────────── Pure-CSS Tree Diagram ─────────── */
+    .tree ul {
+      padding-top: 20px;
+      position: relative;
+      margin: 0;
+    }
+    .tree li {
+      float: left;
+      text-align: center;
+      list-style-type: none;
+      position: relative;
+      padding: 20px 5px 0 5px;
+    }
+    /* connectors */
+    .tree li::before,
+    .tree li::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 50%;
+      border-top: 1px solid #000;
+      width: 50%;
+      height: 20px;
+    }
+    .tree li::after {
+      right: auto;
+      left: 50%;
+      border-left: 1px solid #000;
+    }
+    .tree li:only-child::before,
+    .tree li:only-child::after {
+      display: none;
+    }
+    .tree li:only-child {
+      padding-top: 0;
+    }
+    .tree li:first-child::before,
+    .tree li:last-child::after {
+      border: 0 none;
+    }
+    .tree li:last-child::before {
+      border-right: 1px solid #000;
+    }
+    /* vertical connector down into sub-list */
+    .tree ul ul::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      border-left: 1px solid #000;
+      width: 0;
+      height: 20px;
+    }
+    /* the “boxes” */
+    .node-box {
+      border: 1px solid #000;
+      padding: 6px 12px;
+      display: inline-block;
+      background: #fff;
+      font-family: sans-serif;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    /* secondary screens in green */
+    .node-box.secondary {
+      background-color: #00B15C;
+      color: #fff;
+    }
+    /* clear floats */
+    .tree:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <h1>GO Serve Application Information Architecture</h1>
+  <div class="tree">
+    <ul>
+      <!-- Root / Login -->
+      <li>
+        <div class="node-box">1.0 Login Screen</div>
+      </li>
+
+
+      <!-- Primary: Tables Section -->
+      <li>
+        <div class="node-box">2.0 TABLES Section</div>
+        <ul>
+          <!-- Secondary: Table Overview -->
+          <li>
+            <div class="node-box secondary">2.1 Table Overview Screen</div>
+            <ul>
+              <li><div class="node-box">2.1.1 Header: User Profile Thumbnail/Name, Notification Icon, KDS Sync</div></li>
+              <li><div class="node-box">2.1.2 Search Bar (“Search by table number”)</div></li>
+              <li><div class="node-box">2.1.3 Area Filter Tabs (All, Indoor, ...)</div></li>
+              <li>
+                <div class="node-box">2.1.4 Table Grid Display</div>
+                <ul>
+                  <li>
+                    <div class="node-box">2.1.4.1 Individual Table Representation</div>
+                    <ul>
+                      <li><div class="node-box">Table Number</div></li>
+                      <li><div class="node-box">Status Indicator</div></li>
+                      <li><div class="node-box">Guest Count</div></li>
+                      <li><div class="node-box">Order Timer</div></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><div class="node-box">2.1.5 Floating Action Button (“+”)</div></li>
+              <li>
+                <div class="node-box">2.1.6 Contextual Actions (Selected Table)</div>
+                <ul>
+                  <li><div class="node-box">View KOT(s)</div></li>
+                  <li><div class="node-box">Merge Tables</div></li>
+                  <li><div class="node-box">Transfer Table</div></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+
+          <!-- Secondary: Guest Info -->
+          <li>
+            <div class="node-box secondary">2.2 Guest Information Bottom Sheet</div>
+            <ul>
+              <li><div class="node-box">2.2.1 Title: “Guest Info Table [#]”</div></li>
+              <li><div class="node-box">2.2.2 Guest Name Input</div></li>
+              <li><div class="node-box">2.2.3 Contact Number Input</div></li>
+              <li><div class="node-box">2.2.4 Number of Guests Stepper</div></li>
+              <li><div class="node-box">2.2.5 “Next” / “Start Order” Button</div></li>
+            </ul>
+          </li>
+
+
+          <!-- Secondary: Order Screen -->
+          <li>
+            <div class="node-box secondary">2.3 Order Screen</div>
+            <ul>
+              <li><div class="node-box">2.3.1 Header: “KOT#[#] | Area | Table | Guests”</div></li>
+              <li><div class="node-box">2.3.2 Veg/Non-Veg Toggle</div></li>
+              <li><div class="node-box">2.3.3 Menu View Toggle (List/Grid)</div></li>
+
+
+              <li>
+                <div class="node-box">2.3.4 Menu Item Display Area</div>
+                <ul>
+                  <li><div class="node-box">2.3.4.1 List View</div></li>
+                  <li><div class="node-box">2.3.4.2 Grid View</div></li>
+                  <li>
+                    <div class="node-box">2.3.4.3 Interaction with Item</div>
+                    <ul>
+                      <li><div class="node-box">Tap to add/increment</div></li>
+                      <li><div class="node-box">Swipe for Info/Note</div></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+
+              <li>
+                <div class="node-box">2.3.5 Item Info Bottom Sheet</div>
+                <ul>
+                  <li><div class="node-box">Dish Image</div></li>
+                  <li><div class="node-box">Dish Name</div></li>
+                  <li><div class="node-box">Description/Ingredients</div></li>
+                  <li><div class="node-box">Close Button</div></li>
+                </ul>
+              </li>
+
+
+              <li>
+                <div class="node-box">2.3.6 Add Cooking Request/Note Bottom Sheet</div>
+                <ul>
+                  <li><div class="node-box">Text Area</div></li>
+                  <li><div class="node-box">Pre-built Tags</div></li>
+                  <li><div class="node-box">Save Button</div></li>
+                </ul>
+              </li>
+
+
+              <li>
+                <div class="node-box">2.3.7 Item Variant Selection Bottom Sheet</div>
+                <ul>
+                  <li><div class="node-box">Variant Options</div></li>
+                  <li><div class="node-box">Prices</div></li>
+                  <li><div class="node-box">Quantity Selector</div></li>
+                  <li><div class="node-box">Add Item Button</div></li>
+                </ul>
+              </li>
+
+
+              <li>
+                <div class="node-box">2.3.8 Bottom Controls</div>
+                <ul>
+                  <li><div class="node-box">Search Bar</div></li>
+                  <li><div class="node-box">Menu Category Button</div></li>
+                </ul>
+              </li>
+
+
+              <li>
+                <div class="node-box">2.3.9 Menu Category Modal</div>
+                <ul>
+                  <li><div class="node-box">Category List</div></li>
+                  <li><div class="node-box">Close Button</div></li>
+                </ul>
+              </li>
+
+
+              <li>
+                <div class="node-box">2.3.10 View Order Bar</div>
+                <ul>
+                  <li><div class="node-box">Item Count & Total Price</div></li>
+                  <li><div class="node-box">View Order Button</div></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+
+          <!-- Secondary: Order Summary -->
+          <li>
+            <div class="node-box secondary">2.4 Order Summary Screen</div>
+            <ul>
+              <li><div class="node-box">Header: Order Context</div></li>
+              <li><div class="node-box">List of Items</div></li>
+              <li><div class="node-box">Subtotal / Taxes / Total</div></li>
+              <li><div class="node-box">Add More Items</div></li>
+              <li><div class="node-box">Confirm Order</div></li>
+            </ul>
+          </li>
+
+
+          <!-- Secondary: Order Sent Confirmation -->
+          <li>
+            <div class="node-box secondary">2.5 Order Sent Confirmation</div>
+            <ul>
+              <li><div class="node-box">“Order Sent to Kitchen Successfully!”</div></li>
+              <li><div class="node-box">View KOT / Done</div></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+
+      <!-- Primary: KOT Section -->
+      <li>
+        <div class="node-box">3.0 KOT Section</div>
+        <ul>
+          <!-- Secondary: KOT List View -->
+          <li>
+            <div class="node-box secondary">3.1 KOT List View Screen</div>
+            <ul>
+              <li><div class="node-box">Header: “KOT View”</div></li>
+              <li><div class="node-box">Search Bar</div></li>
+              <li>
+                <div class="node-box">Filter Button</div>
+                <ul>
+                  <li><div class="node-box">Filter by Area</div></li>
+                  <li><div class="node-box">Filter by Status</div></li>
+                </ul>
+              </li>
+              <li>
+                <div class="node-box">List of KOTs</div>
+                <ul>
+                  <li><div class="node-box">Table # & Area</div></li>
+                  <li><div class="node-box">Order # / KOT #</div></li>
+                  <li><div class="node-box">Time Elapsed</div></li>
+                  <li><div class="node-box">Item Summary</div></li>
+                  <li><div class="node-box">Overall Status</div></li>
+                  <li><div class="node-box">Item Status Tags</div></li>
+                </ul>
+              </li>
+              <li>
+                <div class="node-box">Contextual Actions</div>
+                <ul>
+                  <li><div class="node-box">Cancel Order</div></li>
+                  <li><div class="node-box">Add Order</div></li>
+                  <li><div class="node-box">Served Button</div></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+
+          <!-- Secondary: Cancel Order Bottom Sheet -->
+          <li>
+            <div class="node-box secondary">3.2 Cancel Order Bottom Sheet</div>
+            <ul>
+              <li><div class="node-box">List of Items with Checkboxes</div></li>
+              <li><div class="node-box">Select All Option</div></li>
+              <li><div class="node-box">Confirm Cancellation</div></li>
+            </ul>
+          </li>
+
+
+          <!-- Secondary: Bill Options -->
+          <li>
+            <div class="node-box secondary">3.3 Bill Options Screen</div>
+            <ul>
+              <li><div class="node-box">Order Summary Recap</div></li>
+              <li><div class="node-box">Quick Pay</div></li>
+              <li><div class="node-box">Check (Print Bill)</div></li>
+            </ul>
+          </li>
+
+
+          <!-- Secondary: Quick Pay Flow -->
+          <li>
+            <div class="node-box secondary">3.4 Quick Pay Flow</div>
+            <ul>
+              <li><div class="node-box">Payment Method Selection</div></li>
+              <li><div class="node-box">QR Code Display</div></li>
+              <li><div class="node-box">Payment Success Confirmation</div></li>
+              <li><div class="node-box">Done Button</div></li>
+            </ul>
+          </li>
+
+
+          <!-- Secondary: Feedback Screen -->
+          <li>
+            <div class="node-box secondary">3.5 Feedback Screen</div>
+            <ul>
+              <li><div class="node-box">QR Code for Reviews</div></li>
+              <li><div class="node-box">Thank You Message</div></li>
+              <li><div class="node-box">Done Button</div></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+
+      <!-- Primary: Settings Section -->
+      <li>
+        <div class="node-box">4.0 SETTINGS Section</div>
+        <ul>
+          <!-- Secondary: Settings List -->
+          <li>
+            <div class="node-box secondary">4.1 Settings List Screen</div>
+            <ul>
+              <li><div class="node-box">Header: “Settings”</div></li>
+              <li><div class="node-box">Notifications</div></li>
+              <li><div class="node-box">Profile</div></li>
+              <li><div class="node-box">Sync Data</div></li>
+              <li><div class="node-box">Find Server IP</div></li>
+              <li><div class="node-box">Logout Button</div></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+
+    </ul>
+  </div>
+</body>
+</html>
+
+
+

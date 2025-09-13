@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Port-Folio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        
+        :root {
+            --background-color: #F5FCFF;
+            --text-color: #282938;
+            --accent-color: #5E3BEE;
+            --card-background: #F5FCFF;
+            --button-bg: #fff;
+            --button-text: #2b2b2b;
+            --button-border: #5E3BEE;
+            --icon-color: #006B6A;
+        }
+
+        body.dark-mode {
+            --background-color: #282938;
+            --text-color: #F5FCFF;
+            --accent-color: #E62872;
+            --card-background: #c87272;
+            --button-bg: #ffffff;
+            --button-text: #fff;
+            --button-border: #E62872;
+            --icon-color: #E62872;
+        }
+
+        body {
+            font-family: Roboto, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: var(--background-color);
+            box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.15);       
+            position: sticky;   
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+            
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--accent-color);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ee5e3b;
+        }
+
+        .contactus, #dark-mode-toggle {
+            padding: 10px 15px;
+            border: 2px solid var(--button-border);
+            border-radius: 6px;
+            color: var(--button-text);
+            background: var(--button-bg);
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .contactus:hover, #dark-mode-toggle:hover {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 50px;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            background: var(--background-color);
+        }
+
+        .text-content {
+            max-width: 730px;
+        }
+
+        .text-content h1 {
+            font-size: 5rem;
+        }
+
+        .text-content p {
+            font-size: 2rem;
+        }
+
+        .image-content img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 50px;
+            background: var(--background-color);
+            
+        }
+
+        .skill-card {
+            background: var(--card-background);
+            padding: 20px;
+            border-radius: 8px;
+            border-bottom: 3px solid var(--accent-color);
+            box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15);   
+        }
+
+        .skill-card img {
+            margin-top: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 10%;
+        }
+
+        .correction {
+            padding: 64px 64px 100px;
+            background: var(--background-color);
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .remove {
+            width: 466px;
+            height: 55px;
+            color: #1C1E53;
+            font-size: 18px;
+            font-family: Roboto;
+            font-weight: 400;
+            line-height: 27px;
+            word-wrap: break-word;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 14px 32px;
+            background: var(--accent-color);
+            border-radius: 4px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+
+        }
+
+        .button-move {
+            padding-top: 16px;
+            gap: 16px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .button-move:hover {
+            scale: 1.1;
+        }
+
+        .section {
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            padding: 40px;
+            background: var(--background-color);
+            
+
+        }
+
+        .item {
+            flex: 1 1 300px;
+            box-sizing: border-box;
+            background-color: var(--card-background);
+            border-radius: 8px;
+            box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .item:hover {
+            transform: scale(1.05);
+        }
+
+        .item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px 8px 0 0;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 16px;
+            border: none;
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            margin-top: 16px;
+
+        }
+
+        .cta-button:hover {
+            background-color: #a6b2ed;
+
+        }
+
+        .item-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .item-title {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1.4;
+            color: var(--text-color);
+            margin-bottom: 8px;
+
+        }
+
+        .item-description {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #1C1E53;
+            margin-bottom: 16px;
+
+        }
+
+        .testimonials {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 24px;
+            justify-content: center;
+            width: 100%;
+            overflow-x: auto;
+            padding: 40px;
+            background: var(--background-color);
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer and Edge */
+            &::-webkit-scrollbar {
+                display: none; /* Chrome, Safari, and Opera */
+
+            }
+        }
+
+        .testimonial-card {
+            flex: 1 1 300px;
+            max-width: 400px;
+            padding: 24px;
+            border-radius: 6px;
+            border: 1px solid var(--icon-color);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            background: var(--card-background);
+            box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15);
+            scroll-snap-align: start;
+            transition: transform 0.3s ease;
+
+        }
+
+        .testimonial-text {
+            color: #1C1E53;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400;
+            text-align: left;
+
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 16px;
+            padding: 10px;
+            background: var(--card-background);
+            border-radius: 8px;          
+        }
+
+        .profile img {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .profile-info h5 {
+            color: var(--text-color);
+            font-size: 16px;
+            font-weight: 600;
+
+        }
+
+        .profile-info p {
+            color: #1C1E53;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 24px;
+
+        }
+
+        .footer-container {
+            background: var(--background-color);
+            padding: 80px 64px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 100px;
+
+        }
+
+        .footer-content {
+            width: 100%;
+            max-width: 1312px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 80px;
+            padding: 3px;
+            background: var(--background-color);
+            
+        }
+
+        .top-section {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            text-align: center;
+            gap: 20px;
+
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            font-size: 16px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .divider {
+            height: 1px;
+            width: 100%;
+            background: var(--text-color);
+            margin: 20px 0;  
+
+
+        }
+
+        .copyright-privacy {
+            width: 100%;
+            max-width: 1312px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            text-align: center;
+            gap: 20px;
+
+                
+        }
+
+        .privacy-links a {
+            color: var(--text-color);
+            font-size: 14px;
+            text-decoration: none;
+            white-space: nowrap;
+            
+        }
+
+        /* Cursor light effect */
+        #cursor-light {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%);
+            pointer-events: none;
+            transition: transform 0.1s ease, opacity 0.1s ease;
+            
+        }
+
+        /* Media Queries */
+        @media (max-width: 1020px) {
+            .correction {
+                flex-direction: column;
+            }
+            .remove {
+                display: none;
+            }
+            .button-move {
+                padding-top: 2rem;
+                gap: 1rem;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .button-move:hover {
+                scale: 1.1;
+            }
+            .skills {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            .section {
+                padding: 20px;
+            }
+            .item {
+                flex: 1 1 100%;
+            }
+            .item-content {
+                padding: 16px;
+            }
+            .item-title {
+                font-size: 20px;
+            }
+            .item-description {
+                font-size: 14px;
+            }
+            .testimonial-card {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+            .testimonial-text {
+                font-size: 14px;
+            }
+            .profile img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px;
+            }
+            .container {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            .item {
+                flex: 1 1 100%;
+            }
+            .testimonials {
+                flex-direction: column;
+                align-items: center;
+            }
+            .testimonial-card {
+                min-width: 100%;
+            }
+            .section {
+                padding: 20px;
+                gap: 20px;
+            }
+            .footer-container {
+                padding: 40px 32px;
+            }
+            .top-section {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .copyright-privacy {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+
+        @media (hover: none) {
+            #cursor-light {
+                display: none;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">PORT_FOLIO</a>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">About me</a></li>
+            <li><a href="#">Testimonials</a></li>
+            <li><a href="#">Blog</a></li>
+        </ul>
+        <div>
+            <button class="contactus"><a href="#">Contact Now</a></button>
+            <button id="dark-mode-toggle">Toggle Dark Mode 
+            
+            </button>
+            
+        </div>
+    </nav>
+
+    <div class="correction">
+        <div style="width: auto; height: 395px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: flex">
+            <div style="flex-direction: column; align-items: flex-start; gap: 16px; display: flex;">
+                <div style="text-align: center; color: var(--text-color); font-size: 16px; font-family: Roboto; font-weight: 600; line-height: 24px; word-wrap: break-word">Hey, I am Shreyas</div>
+                <div style="align-self: stretch; height: 129px">
+                    <span style="color: var(--text-color ); font-size: 56px; font-family: Roboto; font-weight: 700; line-height: 67.20px; word-wrap: break-word">I am a </span>
+                    <span style="color: var(--accent-color); font-size: 56px; font-family: Roboto; font-weight: 700; line-height: 67.20px; word-wrap: break-word">UX </span>
+                    <span style="color: var(--text-color); font-size: 56px; font-family: Roboto; font-weight: 700; line-height: 67.20px; word-wrap: break-word">and brand designer</span>
+                </div>
+            
+            </div>
+            <a href="index-3.html">
+            <div class="button-move">
+                <div style="height: 32%; padding: 14px 32px; background: var(--accent-color); border-radius: 4px; justify-content: center; align-items: center; gap: 10px; display: flex">
+                    <div style="color: white; font-size: 16px; font-family: Roboto; font-weight: 400; line-height: 24px; word-wrap: break-word">Get In Touch
+                         
+                    </div>
+                </div>
+            </div>
+        </a>
+        </div>
+        <img style="max-width: 100%; height: 900px;" src="IMG_2572.JPEG" />
+    </div>
+
+    <div style="width: 400px; color: var(--text-color); font-size: 18px; font-family: Roboto; font-weight: 200; line-height: 57.60px; word-wrap: break-word">My Skills</div>
+    <div style="width: 400px; color: var(--text-color); font-size: 48px; font-family: Roboto; font-weight: 700; line-height: 57.60px; word-wrap: break-word">My Expertise</div>
+
+    <div class="skills">
+        <div class="skill-card">
+            <h3>Strategy & Direction</h3>
+            <p>I develop user-centric design strategies that align with business objectives, ensuring a seamless and impactful user experience.</p>
+            <img style="width: 50px; height: 50px" src="https://cdn-icons-png.freepik.com/512/8071/8071260.png"/>
+        </div>
+        <div class="skill-card">
+            <h3>Branding & Logo</h3>
+            <p>I create cohesive brand identities that reflect a company’s values and vision, ensuring a strong and memorable presence.</p>
+            <img style="width: 60px; height: 60px" src="https://5.imimg.com/data5/SELLER/Default/2021/1/PJ/FZ/UI/15197505/website-branding-matrixonics-ad-21-oct-20-png-250x250.png" />
+        </div>
+        <div class="skill-card">
+            <h3>UI & UX Design</h3>
+            <p>I craft intuitive and visually appealing user interfaces that enhance usability and engagement.</p>
+            <img style="width: 40px; height: 40px" src="https://i.pinimg.com/474x/0e/d4/77/0ed4771a4789664f8595b5a3f75de973.jpg" />
+        </div>
+        <div class="skill-card">
+            <h3>Webflow Development</h3>
+            <p>I design and develop responsive websites using Webflow, combining visual aesthetics with functional interactions.</p>
+            <img style="width: 40px; height: 40px" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTtrwCa49aF00EFGlFDnlGtQI96a-xbfmNTsFct8ba1wTs0aqKx" />
+        </div>
+    </div>
+
+    <div class="container">
+        <section class="section">
+            <div class="item">
+                <img src="image (21).png" alt="About Me">
+                <div class="item-content">
+                    <h2 class="item-title">Who is Shreyas</h2>
+                    <p class="item-description">I'm a dedicated UI/UX designer, pursuing a UX Design degree at MIT-ID. With hands-on experience, including an internship at Jio, he enhances digital interfaces through research and prototyping. He is currently a UX Design intern at Nurdd. Passionate about user-centered design, he shares projects on Behance, merging aesthetics with functionality to create impactful solutions.Constantly exploring new design trends, tools, and technologies, I strive to create impactful solutions that bridge aesthetics and functionality. My goal is to design experiences that not only look great but also feel seamless and meaningful for users.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="item">
+                <img src="https://cdn.prod.website-files.com/630345fdf55aa7a68d06e94e/63034d85aa9085069346fe89_Image.png" alt="Project 1">
+                <div class="item-content">
+                    <h2 class="item-title">Ahuse</h2>
+                    <p class="item-description">Ahuse is a housing website designed to provide a seamless and user-friendly experience for finding and exploring homes.</p>
+                    <a href="#" class="cta-button">View In Dribbble</a>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://cdn.prod.website-files.com/64faab9e51d65e51f3170d28/64faab9e51d65e51f3170d5b_Image-1.png" alt="Project 2">
+                <div class="item-content">
+                    <h2 class="item-title">App Dashboard</h2>
+                    <p class="item-description">The app dashboard is a banking website designed to provide users with a seamless and efficient way to manage their finances.</p>
+                    <a href="#" class="cta-button">View In Dribbble</a>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://mir-s3-cdn-cf.behance.net/projects/404/0da28c217543441.Y3JvcCwyNTc4LDIwMTcsMzcwLDM5NQ.png" alt="Project 3">
+                <div class="item-content">
+                    <h2 class="item-title">Easy Rent</h2>
+                    <p class="item-description">Easy Rent is a housing website designed for both mobile and desktop, offering a seamless experience for users looking to rent properties.</p>
+                    <a href="#" class="cta-button">View In Dribbble</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="item">
+                <img src="https://cdn.dribbble.com/userupload/19257753/file/original-df8393e7721e85d87823c4b61d57847e.png?resize=752x&vertical=center" alt="Project 1">
+                <div class="item-content">
+                    <h2 class="item-title">Solarify</h2>
+                    <p class="item-description">Solarify is a housing website designed to provide a seamless and user-friendly experience for exploring and managing solar-powered homes.</p>
+                    <a href="#" class="cta-button">View In Dribbble</a>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://cdn.dribbble.com/users/1258370/screenshots/16742941/media/587a0e6289b87c8450b8fd06d151e7e9.jpg?resize=400x300&vertical=center" alt="Project 2">
+                <div class="item-content">
+                    <h2 class="item-title">Flash App Dashboard</h2>
+                    <p class="item-description">Flash is a banking app dashboard website designed to provide users with a seamless and efficient way to manage their finances.</p>
+                    <a href="#" class="cta-button">View In Dribbble</a>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://images.squarespace-cdn.com/content/v1/5a42c0caace864dcc6f12a2c/1610340423572-9Q6I62HJX6VZRXVYK06N/Footer+Image.jpg" alt="Project 3">
+                <div class="item-content">
+                    <h2 class="item-title">Rentalz</h2>
+                    <p class="item-description">Rentalz is a housing website designed for both mobile and desktop, offering a smooth and user-friendly experience for property rentals.</p>
+                    <a href="#" class="cta-button">View In Dribbble</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="item">
+                <img src="image (19).png" alt="Project 1">
+                <div class="item-content">
+                    <h2 class="item-title">HavenRent</h2>
+                    <p class="item-description">HavenRent is a housing website designed to provide a seamless and user-friendly experience for finding and renting properties.</p>
+                    <a href="#" class="cta-button">View In Dribbble</a>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://elements-resized.envatousercontent.com/elements-cover-images/afdb8825-e4dc-4601-a4bd-49f69dd1ad4f?w=433&cf_fit=scale-down&q=85&format=auto&s=415674d695689584ba93f56ea9d728323bc53fd097d270cf20d3565b9ba8c7da" alt="Project 2">
+                <div class="item-content">
+                    <h2 class="item-title">Finova App Dashboard</h2>
+                    <p class="item-description">Finova is a banking app dashboard website designed to provide users with a seamless and efficient way to manage their finances.</p>
+                    <a href="#" class="cta-button">View In Dribbble</a>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://reliqus.com/wp-content/uploads/2025/01/pulau-luxury-charters.jpg" alt="Project 3">
+                <div class="item-content">
+                    <h2 class="item-title">LivEase</h2>
+                    <p class="item-description">LivEase is a housing website designed for both mobile and desktop, offering a seamless and user-friendly experience for renting and buying properties.</p>
+                    <a href="#" class="cta-button">View In Dribbble</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div style="width: 400px; color: var(--text-color); font-size: 48px; font-family: Roboto; font-weight: 700; line-height: 57.60px; word-wrap: break-word">How Can I Help You</div>
+
+    <div class="skills">
+        
+        <div class="skill-card">
+            <h3>Planning and Organizing</h3>
+            <p>I begin by gaining insights into your goals, target audience, and distinctive brand identity.</p>
+            <img style="width: 50px; height: 50px" src="DeWatermark.ai_1740246928570.png" />
+        </div>
+        <div class="skill-card">
+            <h3>Crafting And Designing</h3>
+            <p>I produce eye-catching designs that not only draw attention but also enhance user experience.</p>
+            <img style="width: 50px; height: 50px" src="unnamed.webp" />
+        </div>
+        <div class="skill-card">
+            <h3>Delivering</h3>
+            <p>My efficient workflow and project management skills ensure that I deliver high-quality work on time.</p>
+            <img style="width: 50px; height: 50px" src="white-truck-icon-on-blue-260nw-216896941 copy.png" />
+        </div>
+        <div class="skill-card">
+            <h3>Launching</h3>
+            <p>When it comes to launching your project, I ensure a seamless transition from development to deployment.</p>
+            <img style="width: 50px; height: 50px" src="https://cdn-icons-png.flaticon.com/512/6576/6576736.png" />
+        </div>
+    </div>
+
+    <div style="width: 100%; padding: 112px 64px; background: var(--background-color); flex-direction: column; justify-content: flex-start; align-items: center; gap: 80px; display: flex">
+        <div style="align-self: stretch; height: 98px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: flex">
+            <div style="width: 560px; color: var(--text-color); font-size: 16px; font-family: Roboto; font-weight: 600; line-height: 24px; word-wrap: break-word">Clients Feedback</div>
+            <div style="width: 400px; color: var(--text-color); font-size: 48px; font-family: Roboto; font-weight: 700; line-height: 57.60px; word-wrap: break-word">Customer Testimonials</div>
+        </div>
+        <div class="testimonials">
+            <div class="testimonial-card">
+                <svg width="116" height="19" viewBox="0 0 116 19" fill="none">
+                    <g clip-path="url(#clip0_47_50)">
+                        <path d="M9.07088 0.612344C9.41462 -0.204115 10.5854 -0.204114 10.9291 0.612346L12.9579 5.43123C13.1029 5.77543 13.4306 6.01061 13.8067 6.0404L19.0727 6.45748C19.9649 6.52814 20.3267 7.62813 19.6469 8.2034L15.6348 11.5987C15.3482 11.8412 15.223 12.2218 15.3106 12.5843L16.5363 17.661C16.744 18.5211 15.7969 19.201 15.033 18.7401L10.5245 16.0196C10.2025 15.8252 9.7975 15.8252 9.47548 16.0196L4.96699 18.7401C4.20311 19.201 3.25596 18.5211 3.46363 17.661L4.68942 12.5843C4.77698 12.2218 4.65182 11.8412 4.36526 11.5987L0.353062 8.2034C-0.326718 7.62813 0.0350679 6.52814 0.927291 6.45748L6.19336 6.0404C6.5695 6.01061 6.89716 5.77543 7.04207 5.43123L9.07088 0.612344Z" fill="var(--icon-color)"/>
+                        <path d="M33.0709 0.612344C33.4146 -0.204115 34.5854 -0.204114 34.9291 0.612346L36.9579 5.43123C37.1029 5.77543 37.4306 6.01061 37.8067 6.0404L43.0727 6.45748C43.9649 6.52814 44.3267 7.62813 43.6469 8.2034L39.6348 11.5987C39.3482 11.8412 39.223 12.2218 39.3106 12.5843L40.5363 17.661C40.744 18.5211 39.7969 19.201 39.033 18.7401L34.5245 16.0196C34.2025 15.8252 33.7975 15.8252 33.4755 16.0196L28.967 18.7401C28.2031 19.201 27.256 18.5211 27.4636 17.661L28.6894 12.5843C28.777 12.2218 28.6518 11.8412 28.3653 11.5987L24.3531 8.2034C23.6733 7.62813 24.0351 6.52814 24.9273 6.45748L30.1934 6.0404C30.5695 6.01061 30.8972 5.77543 31.0421 5.43123L33.0709 0.612344Z" fill="var(--icon-color)"/>
+                        <path d="M57.0709 0.612344C57.4146 -0.204115 58.5854 -0.204114 58.9291 0.612346L60.9579 5.43123C61.1029 5.77543 61.4306 6.01061 61.8067 6.0404L67.0727 6.45748C67.9649 6.52814 68.3267 7.62813 67.6469 8.2034L63.6348 11.5987C63.3482 11.8412 63.223 12.2218 63.3106 12.5843L64.5363 17.661C64.744 18.5211 63.7969 19.201 63.033 18.7401L58.5245 16.0196C58.2025 15.8252 57.7975 15.8252 57.4755 16.0196L52.967 18.7401C52.2031 19.201 51.256 18.5211 51.4636 17.661L52.6894 12.5843C52.777 12.2218 52.6518 11.8412 52.3653 11.5987L48.3531 8.2034C47.6733 7.62813 48.0351 6.52814 48.9273 6.45748L54.1934 6.0404C54.5695 6.01061 54.8972 5.77543 55.0421 5.43123L57.0709 0.612344Z" fill="var(--icon-color)"/>
+                        <path d="M81.0706 0.612344C81.4144 -0.204115 82.5851 -0.204114 82.9289 0.612346L84.9576 5.43123C85.1026 5.77543 85.4303 6.01061 85.8064 6.0404L91.0724 6.45748C91.9646 6.52814 92.3264 7.62813 91.6466 8.2034L87.6345 11.5987C87.348 11.8412 87.2228 12.2218 87.3103 12.5843L88.5361 17.661C88.7438 18.5211 87.7966 19.201 87.0328 18.7401L82.5243 16.0196C82.2023 15.8252 81.7973 15.8252 81.4752 16.0196L76.9667 18.7401C76.2029 19.201 75.2557 18.5211 75.4634 17.661L76.6892 12.5843C76.7767 12.2218 76.6516 11.8412 76.365 11.5987L72.3528 8.2034C71.673 7.62813 72.0348 6.52814 72.927 6.45748L78.1931 6.0404C78.5693 6.01061 78.8969 5.77543 79.0418 5.43123L81.0706 0.612344Z" fill="var(--icon-color)"/>
+                        <path d="M105.071 0.612344C105.414 -0.204115 106.585 -0.204114 106.929 0.612346L108.958 5.43123C109.103 5.77543 109.43 6.01061 109.806 6.0404L115.072 6.45748C115.965 6.52814 116.326 7.62813 115.647 8.2034L111.635 11.5987C111.348 11.8412 111.223 12.2218 111.31 12.5843L112.536 17.661C112.744 18.5211 111.797 19.201 111.033 18.7401L106.524 16.0196C106.202 15.8252 105.797 15.8252 105.475 16.0196L100.967 18.7401C100.203 19.201 99.2557 18.5211 99.4634 17.661L100.689 12.5843C100.777 12.2218 100.652 11.8412 100.365 11.5987L96.3528 8.2034C95.673 7.62813 96.0348 6.52814 96.927 6.45748L102.193 6.0404C102.569 6.01061 102.897 5.77543 103.042 5.43123L105.071 0.612344Z" fill="var(--icon-color)"/>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_47_50"><rect width="116" height="18.8889" fill="white"/></clipPath>
+                    </defs>
+                </svg>
+                <div class="testimonial-text">"Shreyas did an outstanding job designing my portfolio website! The user experience is seamless, and the visual aesthetics truly represent my personal brand."</div>
+                <div class="profile">
+                    <img src="https://umairsajid.com/wp-content/uploads/2022/10/image2.png" />
+                    <div class="profile-info">
+                        <h5>Dianne Russell</h5>
+                        <p>Starbucks</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <svg width="116" height="19" viewBox="0 0 116 19" fill="none">
+                    <g clip-path="url(#clip0_47_63)">
+                        <path d="M9.07088 0.612344C9.41462 -0.204115 10.5854 -0.204114 10.9291 0.612346L12.9579 5.43123C13.1029 5.77543 13.4306 6.01061 13.8067 6.0404L19.0727 6.45748C19.9649 6.52814 20.3267 7.62813 19.6469 8.2034L15.6348 11.5987C15.3482 11.8412 15.223 12.2218 15.3106 12.5843L16.5363 17.661C16.744 18.5211 15.7969 19.201 15.033 18.7401L10.5245 16.0196C10.2025 15.8252 9.7975 15.8252 9.47548 16.0196L4.96699 18.7401C4.20311 19.201 3.25596 18.5211 3.46363 17.661L4.68942 12.5843C4.77698 12.2218 4.65182 11.8412 4.36526 11.5987L0.353062 8.2034C-0.326718 7.62813 0.0350679 6.52814 0.927291 6.45748L6.19336 6.0404C6.5695 6.01061 6.89716 5.77543 7.04207 5.43123L9.07088 0.612344Z" fill="var(--icon-color)"/>
+                        <path d="M33.0709 0.612344C33.4146 -0.204115 34.5854 -0.204114 34.9291 0.612346L36.9579 5.43123C37.1029 5.77543 37.4306 6.01061 37.8067 6.0404L43.0727 6.45748C43.9649 6.52814 44.3267 7.62813 43.6469 8.2034L39.6348 11.5987C39.3482 11.8412 39.223 12.2218 39.3106 12.5843L40.5363 17.661C40.744 18.5211 39.7969 19.201 39.033 18.7401L34.5245 16.0196C34.2025 15.8252 33.7975 15.8252 33.4755 16.0196L28.967 18.7401C28.2031 19.201 27.256 18.5211 27.4636 17.661L28.6894 12.5843C28.777 12.2218 28.6518 11.8412 28.3653 11.5987L24.3531 8.2034C23.6733 7.62813 24.0351 6.52814 24.9273 6.45748L30.1934 6.0404C30.5695 6.01061 30.8972 5.77543 31.0421 5.43123L33.0709 0.612344Z" fill="var(--icon-color)"/>
+                        <path d="M57.0709 0.612344C57.4146 -0.204115 58.5854 -0.204114 58.9291 0.612346L60.9579 5.43123C61.1029 5.77543 61.4306 6.01061 61.8067 6.0404L67.0727 6.45748C67.9649 6.52814 68.3267 7.62813 67.6469 8.2034L63.6348 11.5987C63.3482 11.8412 63.223 12.2218 63.3106 12.5843L64.5363 17.661C64.744 18.5211 63.7969 19.201 63.033 18.7401L58.5245 16.0196C58.2025 15.8252 57.7975 15.8252 57.4755 16.0196L52.967 18.7401C52.2031 19.201 51.256 18.5211 51.4636 17.661L52.6894 12.5843C52.777 12.2218 52.6518 11.8412 52.3653 11.5987L48.3531 8.2034C47.6733 7.62813 48.0351 6.52814 48.9273 6.45748L54.1934 6.0404C54.5695 6.01061 54.8972 5.77543 55.0421 5.43123L57.0709 0.612344Z" fill="var(--icon-color)"/>
+                        <path d="M81.0709 0.612344C81.4146 -0.204115 82.5854 -0.204114 82.9291 0.612346L84.9579 5.43123C85.1029 5.77543 85.4306 6.01061 85.8067 6.0404L91.0727 6.45748C91.9649 6.52814 92.3267 7.62813 91.6469 8.2034L87.6348 11.5987C87.3482 11.8412 87.223 12.2218 87.3106 12.5843L88.5363 17.661C88.744 18.5211 87.7969 19.201 87.033 18.7401L82.5245 16.0196C82.2025 15.8252 81.7975 15.8252 81.4755 16.0196L76.967 18.7401C76.2031 19.201 75.256 18.5211 75.4636 17.661L76.6894 12.5843C76.777 12.2218 76.6518 11.8412 76.3653 11.5987L72.3531 8.2034C71.6733 7.62813 72.0351 6.52814 72.9273 6.45748L78.1934 6.0404C78.5695 6.01061 78.8972 5.77543 79.0421 5.43123L81.0709 0.612344Z" fill="var(--icon-color)"/>
+                        <path d="M105.071 0.612344C105.415 -0.204115 106.585 -0.204114 106.929 0.612346L108.958 5.43123C109.103 5.77543 109.431 6.01061 109.807 6.0404L115.073 6.45748C115.965 6.52814 116.327 7.62813 115.647 8.2034L111.635 11.5987C111.348 11.8412 111.223 12.2218 111.311 12.5843L112.536 17.661C112.744 18.5211 111.797 19.201 111.033 18.7401L106.525 16.0196C106.202 15.8252 105.797 15.8252 105.475 16.0196L100.967 18.7401C100.203 19.201 99.256 18.5211 99.4636 17.661L100.689 12.5843C100.777 12.2218 100.652 11.8412 100.365 11.5987L96.3531 8.2034C95.6733 7.62813 96.0351 6.52814 96.9273 6.45748L102.193 6.0404C102.569 6.01061 102.897 5.77543 103.042 5.43123L105.071 0.612344Z" fill="var(--icon-color)"/>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_47_63"><rect width="116" height="18.8889" fill="white"/></clipPath>
+                    </defs>
+                </svg>
+                <div class="testimonial-text">"Shreyas brought my vision to life with a stunning portfolio website that perfectly reflects my style and professional journey."</div>
+                <div class="profile">
+                    <img src="https://cdn.prod.website-files.com/6181cf08ab79b249c300c551/61849eafde4819b551ca1430_Small%20Avatar%2002.png" />
+                    <div class="profile-info">
+                        <h5>Kristin Watson</h5>
+                        <p>Louis Vuitton</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <svg width="116" height="19" viewBox="0 0 116 19" fill="none">
+                    <g clip-path="url(#clip0_47_76)">
+                        <path d="M9.07088 0.612344C9.41462 -0.204115 10.5854 -0.204114 10.9291 0.612346L12.9579 5.43123C13.1029 5.77543 13.4306 6.01061 13.8067 6.0404L19.0727 6.45748C19.9649 6.52814 20.3267 7.62813 19.6469 8.2034L15.6348 11.5987C15.3482 11.8412 15.223 12.2218 15.3106 12.5843L16.5363 17.661C16.744 18.5211 15.7969 19.201 15.033 18.7401L10.5245 16.0196C10.2025 15.8252 9.7975 15.8252 9.47548 16.0196L4.96699 18.7401C4.20311 19.201 3.25596 18.5211 3.46363 17.661L4.68942 12.5843C4.77698 12.2218 4.65182 11.8412 4.36526 11.5987L0.353062 8.2034C-0.326718 7.62813 0.0350679 6.52814 0.927291 6.45748L6.19336 6.0404C6.5695 6.01061 6.89716 5.77543 7.04207 5.43123L9.07088 0.612344Z" fill="var(--icon-color)"/>
+                        <path d="M33.0709 0.612344C33.4146 -0.204115 34.5854 -0.204114 34.9291 0.612346L36.9579 5.43123C37.1029 5.77543 37.4306 6.01061 37.8067 6.0404L43.0727 6.45748C43.9649 6.52814 44.3267 7.62813 43.6469 8.2034L39.6348 11.5987C39.3482 11.8412 39.223 12.2218 39.3106 12.5843L40.5363 17.661C40.744 18.5211 39.7969 19.201 39.033 18.7401L34.5245 16.0196C34.2025 15.8252 33.7975 15.8252 33.4755 16.0196L28.967 18.7401C28.2031 19.201 27.256 18.5211 27.4636 17.661L28.6894 12.5843C28.777 12.2218 28.6518 11.8412 28.3653 11.5987L24.3531 8.2034C23.6733 7.62813 24.0351 6.52814 24.9273 6.45748L30.1934 6.0404C30.5695 6.01061 30.8972 5.77543 31.0421 5.43123L33.0709 0.612344Z" fill="var(--icon-color)"/>
+                        <path d="M57.0709 0.612344C57.4146 -0.204115 58.5854 -0.204114 58.9291 0.612346L60.9579 5.43123C61.1029 5.77543 61.4306 6.01061 61.8067 6.0404L67.0727 6.45748C67.9649 6.52814 68.3267 7.62813 67.6469 8.2034L63.6348 11.5987C63.3482 11.8412 63.223 12.2218 63.3106 12.5843L64.5363 17.661C64.744 18.5211 63.7969 19.201 63.033 18.7401L58.5245 16.0196C58.2025 15.8252 57.7975 15.8252 57.4755 16.0196L52.967 18.7401C52.2031 19.201 51.256 18.5211 51.4636 17.661L52.6894 12.5843C52.777 12.2218 52.6518 11.8412 52.3653 11.5987L48.3531 8.2034C47.6733 7.62813 48.0351 6.52814 48.9273 6.45748L54.1934 6.0404C54.5695 6.01061 54.8972 5.77543 55.0421 5.43123L57.0709 0.612344Z" fill="var(--icon-color)"/>
+                        <path d="M81.0709 0.612344C81.4146 -0.204115 82.5854 -0.204114 82.9291 0.612346L84.9579 5.43123C85.1029 5.77543 85.4306 6.01061 85.8067 6.0404L91.0727 6.45748C91.9649 6.52814 92.3267 7.62813 91.6469 8.2034L87.6348 11.5987C87.3482 11.8412 87.223 12.2218 87.3106 12.5843L88.5363 17.661C88.744 18.5211 87.7969 19.201 87.033 18.7401L82.5245 16.0196C82.2025 15.8252 81.7975 15.8252 81.4755 16.0196L76.967 18.7401C76.2031 19.201 75.256 18.5211 75.4636 17.661L76.6894 12.5843C76.777 12.2218 76.6518 11.8412 76.3653 11.5987L72.3531 8.2034C71.6733 7.62813 72.0351 6.52814 72.9273 6.45748L78.1934 6.0404C78.5695 6.01061 78.8972 5.77543 79.0421 5.43123L81.0709 0.612344Z" fill="var(--icon-color)"/>
+                        <path d="M105.071 0.612344C105.415 -0.204115 106.585 -0.204114 106.929 0.612346L108.958 5.43123C109.103 5.77543 109.431 6.01061 109.807 6.0404L115.073 6.45748C115.965 6.52814 116.327 7.62813 115.647 8.2034L111.635 11.5987C111.348 11.8412 111.223 12.2218 111.311 12.5843L112.536 17.661C112.744 18.5211 111.797 19.201 111.033 18.7401L106.525 16.0196C106.202 15.8252 105.797 15.8252 105.475 16.0196L100.967 18.7401C100.203 19.201 99.256 18.5211 99.4636 17.661L100.689 12.5843C100.777 12.2218 100.652 11.8412 100.365 11.5987L96.3531 8.2034C95.6733 7.62813 96.0351 6.52814 96.9273 6.45748L102.193 6.0404C102.569 6.01061 102.897 5.77543 103.042 5.43123L105.071 0.612344Z" fill="var(--icon-color)"/>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_47_76"><rect width="116" height="18.8889" fill="white"/></clipPath>
+                    </defs>
+                </svg>
+                <div class="testimonial-text">"Shreyas created a portfolio website that truly captures my personality and professional journey. The design is clean, modern, and easy to navigate."</div>
+                <div class="profile">
+                    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcROpv6AD8t7kw5z4oZLukyh0uLYgXxjo_cjJjdOLT2XDYPXMDyE" />
+                    <div class="profile-info">
+                        <h5>Kathryn Murphy</h5>
+                        <p>McDonald's</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="top-section">
+                <div class="logo">
+                    <svg width="417" height="30" viewBox="0 0 417 30" fill="none"></svg>
+                </div>
+                <div class="nav-links">
+                    <a href="#">Home</a>
+                    <a href="#">Portfolio</a>
+                    <a href="#">About me</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Testimonials</a>
+                    <a href="#">Portfolio</a>
+                    <a href="#">Blog</a>
+                </div>
+                
+                <div class="social-icons">
+                    <svg width="368" height="24" viewBox="0 0 368 24" fill="none"></svg>
+                    
+                </div>
+            </div>
+            
+            <div class="bottom-section">
+                <div class="divider"></div>
+                <div class="copyright-privacy">
+                    <div class="copyright">Made by Shreyas</div>
+                    <div class="privacy-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookies Settings</a>
+                        <a href="#">Accessibility</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cursor light effect div -->
+    <div id="cursor-light"></div>
+
+    <!-- Link to external JavaScript -->
+    <script src="Main website.js"></script>
+</body>
+</html>

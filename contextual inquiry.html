@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: 'Lato', sans-serif; background: #fff; }
+    .box { 
+        border: 2px solid #000; 
+        border-radius: 15px; 
+        padding: 20px; 
+        margin: 20px; 
+        display: inline-block; 
+        background: #F5F5F5; 
+        text-align: center;
+        width: 200px;
+    }
+    .painpoint { color: red; font-weight: bold; }
+    .delay { color: orange; font-weight: bold; }
+    .arrow { font-size: 30px; }
+    .container { display: flex; justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+
+<h2>Waiter Order-Taking Workflow (As-Is)</h2>
+<div class="container">
+  <div class="box">1. Greet Guest</div>
+  <div class="arrow">➡️</div>
+  <div class="box">2. Take Order<br>(Notepad)</div>
+  <div class="arrow">➡️</div>
+  <div class="box">3. Walk to POS</div>
+  <div class="arrow">➡️</div>
+  <div class="box">4. Input Order in POS<br><span class="delay">[Delay]</span></div>
+  <div class="arrow">➡️</div>
+  <div class="box">5. KOT to Kitchen<br>(Manual/Printer)</div>
+  <div class="arrow">➡️</div>
+  <div class="box">6. Handle Modification Chaos<br><span class="painpoint">[Pain Point]</span></div>
+  <div class="arrow">➡️</div>
+  <div class="box">7. Check Kitchen Pass<br><span class="delay">[Delay]</span></div>
+  <div class="arrow">➡️</div>
+  <div class="box">8. Serve</div>
+  <div class="arrow">➡️</div>
+  <div class="box">9. Process Bill at POS</div>
+</div>
+
+</body>
+</html>

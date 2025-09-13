@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.cdnfonts.com/css/lora" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog.nav | GenesisBook</title>
+    <link rel="stylesheet" href="styles-2.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <div class="auth-container">
+        <div class="form-container">
+            <h2>Get in touch</h2>
+            <form action="get_in_touch.php" method="post">
+                <input type="text" name="full_name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="your_message" placeholder="Your Message" rows="5" required></textarea>
+
+                <select name="expertise" required>
+                    <option value="">Select Area of Expertise</option>
+                    <option value="Design">Design</option>
+                    <option value="AI">AI</option>
+                    <option value="UX">UX</option>
+                    <option value="BCI">BCI</option>
+                    <option value="Data Science">Data Science</option>
+                    <option value="Statistics">Statistics</option>
+                </select>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" name="newsletter" value="yes">
+                    <span>Subscribe to newsletter</span>
+                </label>
+
+                <button type="submit">Send Message</button>
+            </form>
+            <div id="formMessage"></div>
+        </div>
+    </div>
+
+    <div class="portfolio-box">
+        <h2>GenesisBook</h2>
+        <p class="subtitle"></p>
+    </div>
+
+    <script src="script-1.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.cdnfonts.com/css/lora" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edge-Aligned Login/Signup</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+
+    <canvas id="gridCanvas"></canvas>
+    <div id="particles-js"></div>
+
+    <div class="portfolio-box">
+        <h2>GenesisBook</h2>
+        <p class="subtitle">A team of four design students</p>
+    </div>
+
+    <div class="auth-container">
+        <!-- Login Form -->
+        <div class="form-container" id="login-form">
+            <h2>Login</h2>
+            <form action="signup_login.php" method="post">
+                <input type="email" placeholder="Email" required name="email">
+                <input type="password" placeholder="Password" required name="password">
+                <button type="submit" name="login">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" onclick="toggleForm()">Sign Up</a></p>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="form-container" id="signup-form" style="display: none;">
+            <h2>Sign Up</h2>
+            <form action="signup_login.php" method="post">
+                <input type="text" placeholder="Full Name" required name="full_name">
+                <input type="email" placeholder="Email" required name="email">
+                <input type="password" placeholder="Password" required name="password">
+                <button type="submit" name="signup">Sign Up</button>
+                <p>Already have an account? <a href="#" onclick="toggleForm()">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
