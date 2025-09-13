@@ -11,13 +11,13 @@ This project is a collection of individual portfolio websites created by a team 
 ## Team Members
 
 * **Navaneeth** - Design Researcher
-    * [Portfolio](indexPFnav.html)
+    * [Portfolio](allFiles/indexPFnav.html)
 * **Kishan** - Visual Designer
-    * [Portfolio](webpage.html)
+    * [Portfolio](allFiles/webpage.html)
 * **Shreyas** - UX Designer
-    * [Portfolio](Main%20Website.html)
+    * [Portfolio](allFiles/Main%20Website.html)
 * **Abin** - Interaction Designer
-    * [Portfolio](Abinportfolio%202/websiteabxn.html)
+    * [Portfolio](allFiles/Abinportfolio%202/websiteabxn.html)
 
 ## Project Structure
 
@@ -36,11 +36,11 @@ To view the websites locally, you can use a local web server such as XAMPP.
 2.  **Start XAMPP**: Open the XAMPP control panel and start the **Apache** server.
 3.  **Copy Files**: Place the entire project folder into the `htdocs` directory within your XAMPP installation folder.
 4.  **Access the Websites**: Open your web browser and navigate to the following URLs:
-    * **About Page**: `http://localhost/GenesisBook/aboutus.html`
-    * **Navaneeth's Portfolio**: `http://localhost/GenesisBook/indexPFnav.html`
-    * **Kishan's Portfolio**: `http://localhost/GenesisBook/webpage.html`
-    * **Shreyas's Portfolio**: `http://localhost/GenesisBook/Main%20Website.html`
-    * **Abin's Portfolio**: `http://localhost/GenesisBook/Abinportfolio%202/websiteabxn.html`
+    * **About Page**: `http://localhost/allFiles/GenesisBook/aboutus.html`
+    * **Navaneeth's Portfolio**: `http://localhost/allFiles/GenesisBook/indexPFnav.html`
+    * **Kishan's Portfolio**: `http://localhost/allFiles/GenesisBook/webpage.html`
+    * **Shreyas's Portfolio**: `http://localhost/allFiles/GenesisBook/Main%20Website.html`
+    * **Abin's Portfolio**: `http://localhost/allFiles/GenesisBook/Abinportfolio%202/websiteabxn.html`
 
 ## Acknowledgements
 
