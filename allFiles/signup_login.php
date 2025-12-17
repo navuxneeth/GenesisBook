@@ -23,8 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("ss", $email, $password);
 
     if ($stmt->execute()) {
-        // After success, redirect to about us
-        header("Location: aboutus.html");
+        // After success, redirect to root index (aboutus page)
+        header("Location: ../index.html");
         exit();
     } else {
         echo "Error: " . $stmt->error;

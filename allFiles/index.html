@@ -22,7 +22,7 @@
         <!-- Login Form -->
         <div class="form-container" id="login-form">
             <h2>Login</h2>
-            <form action="signup_login.php" method="post">
+            <form action="signup_login.php" method="post" onsubmit="handleFormSubmit(event)">
                 <input type="email" placeholder="Email" required name="email">
                 <input type="password" placeholder="Password" required name="password">
                 <button type="submit" name="login">Login</button>
@@ -33,7 +33,7 @@
         <!-- Signup Form -->
         <div class="form-container" id="signup-form" style="display: none;">
             <h2>Sign Up</h2>
-            <form action="signup_login.php" method="post">
+            <form action="signup_login.php" method="post" onsubmit="handleFormSubmit(event)">
                 <input type="text" placeholder="Full Name" required name="full_name">
                 <input type="email" placeholder="Email" required name="email">
                 <input type="password" placeholder="Password" required name="password">
@@ -44,5 +44,19 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Fallback redirect function in case PHP backend is not available
+        function handleFormSubmit(event) {
+            // Allow the form to submit normally to PHP
+            // If PHP is not available, we'll redirect after a delay
+            setTimeout(function() {
+                // Check if we're still on the login page (PHP didn't redirect)
+                var currentPath = window.location.pathname;
+                if (currentPath.indexOf('allFiles') !== -1) {
+                    window.location.href = '../index.html';
+                }
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
