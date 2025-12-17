@@ -2,404 +2,134 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GenesisBook - Portfolio Collection</title>
     <link href="https://fonts.cdnfonts.com/css/lora" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenesisBook - About Us</title>
+    <link rel="stylesheet" href="allFiles/aboutus_assets/about-styles.css">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Lora', serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        #particles-js {
+        /* Login button styles */
+        .login-button {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .container {
-            position: relative;
-            z-index: 1;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 60px;
-            animation: fadeInDown 1s ease-out;
-        }
-
-        h1 {
-            font-size: 4rem;
-            color: white;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .subtitle {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.95);
-            margin-bottom: 10px;
-        }
-
-        .description {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.85);
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .section {
-            margin-bottom: 50px;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: white;
-            margin-bottom: 30px;
-            text-align: center;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: fadeInUp 0.8s ease-out;
-            animation-fill-mode: both;
-        }
-
-        .card:nth-child(1) { animation-delay: 0.1s; }
-        .card:nth-child(2) { animation-delay: 0.2s; }
-        .card:nth-child(3) { animation-delay: 0.3s; }
-        .card:nth-child(4) { animation-delay: 0.4s; }
-        .card:nth-child(5) { animation-delay: 0.5s; }
-        .card:nth-child(6) { animation-delay: 0.6s; }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .card h3 {
-            font-size: 1.8rem;
-            color: #667eea;
-            margin-bottom: 15px;
-        }
-
-        .card p {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .card a {
-            display: inline-block;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
             padding: 12px 30px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             text-decoration: none;
             border-radius: 25px;
             font-weight: 500;
+            font-family: 'Lora', serif;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .card a:hover {
+        .login-button:hover {
             transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .links-section {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            animation: fadeInUp 0.8s ease-out 0.7s;
-            animation-fill-mode: both;
-        }
-
-        .links-section h3 {
-            font-size: 1.8rem;
-            color: #667eea;
-            margin-bottom: 20px;
-        }
-
-        .links-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-        }
-
-        .links-list a {
-            display: block;
-            padding: 12px 20px;
-            background: #f8f9fa;
-            color: #667eea;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            border-left: 4px solid #667eea;
-        }
-
-        .links-list a:hover {
-            background: #667eea;
-            color: white;
-            transform: translateX(5px);
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding: 30px 20px;
-            color: rgba(255, 255, 255, 0.9);
-            animation: fadeIn 1s ease-out 1s;
-            animation-fill-mode: both;
-        }
-
-        footer p {
-            margin: 10px 0;
-        }
-
-        footer a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            border-bottom: 2px solid white;
-            transition: opacity 0.3s ease;
-        }
-
-        footer a:hover {
-            opacity: 0.8;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .links-list {
-                grid-template-columns: 1fr;
-            }
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
         }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
 
-    <div class="container">
-        <header>
-            <h1>GenesisBook</h1>
-            <p class="subtitle">A Team of Four Design Students</p>
-            <p class="description">Explore our collection of portfolio websites and design projects created by UX design students from MIT Institute of Design, Pune.</p>
-        </header>
+    <!-- Login Button -->
+    <a href="allFiles/index.html" class="login-button">Login</a>
 
-        <!-- Team Portfolios Section -->
-        <section class="section">
-            <h2 class="section-title">Team Portfolios</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <h3>Navaneeth</h3>
-                    <p>Design Researcher - Explore UX research projects, case studies, and innovative design solutions.</p>
-                    <a href="allFiles/indexPFnav.html" target="_blank">View Portfolio →</a>
-                </div>
-                <div class="card">
-                    <h3>Kishan</h3>
-                    <p>Visual Designer - Discover graphic design work, visual storytelling, and creative projects.</p>
-                    <a href="allFiles/webpage.html" target="_blank">View Portfolio →</a>
-                </div>
-                <div class="card">
-                    <h3>Shreyas</h3>
-                    <p>UX Designer - Browse user experience designs, prototypes, and interface solutions.</p>
-                    <a href="allFiles/Main Website.html" target="_blank">View Portfolio →</a>
-                </div>
-                <div class="card">
-                    <h3>Abin</h3>
-                    <p>Interaction Designer - Experience interactive design projects and motion design work.</p>
-                    <a href="allFiles/Abinportfolio 2/websiteabxn.html" target="_blank">View Portfolio →</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- About & General Pages Section -->
-        <section class="section">
-            <h2 class="section-title">About & Team Info</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <h3>About Us</h3>
-                    <p>Learn more about our team, our vision, and our journey in UX design.</p>
-                    <a href="allFiles/aboutus.html" target="_blank">Learn More →</a>
-                </div>
-                <div class="card">
-                    <h3>Login / Sign Up</h3>
-                    <p>Access the team portal with login and signup functionality.</p>
-                    <a href="allFiles/index.html" target="_blank">Access Portal →</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Additional Projects Section -->
-        <section class="section">
-            <h2 class="section-title">Additional Projects</h2>
-            <div class="links-section">
-                <h3>Explore More Pages</h3>
-                <div class="links-list">
-                    <a href="allFiles/applications.html" target="_blank">Applications</a>
-                    <a href="allFiles/contextual inquiry.html" target="_blank">Contextual Inquiry</a>
-                    <a href="allFiles/Website Animationhtml.html" target="_blank">Website Animation</a>
-                    <a href="allFiles/index-3.html" target="_blank">Additional Index Page</a>
-                    <a href="allFiles/responsive log in page.html" target="_blank">Responsive Login Page</a>
-                    <a href="allFiles/websiteabxn.html" target="_blank">Alternative Portfolio Layout</a>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <p><strong>MIT Institute of Design, Pune</strong></p>
-            <p>Created as part of the User Experience Design curriculum for Semester 4</p>
-            <p>For inquiries, contact <a href="https://www.linkedin.com/in/navaneeth-sankar-k-p" target="_blank">Navaneeth Sankar K P</a></p>
-            <p style="margin-top: 20px; font-size: 0.9rem;">© 2024 GenesisBook Team. All rights reserved.</p>
-        </footer>
+    <div class="top-image-container">
+        <img src="allFiles/aboutus_assets/meet the team pic.png" alt="Team Introduction">
     </div>
 
-    <script>
-        // Initialize particles.js
-        particlesJS('particles-js', {
-            particles: {
-                number: {
-                    value: 80,
-                    density: {
-                        enable: true,
-                        value_area: 800
-                    }
-                },
-                color: {
-                    value: '#ffffff'
-                },
-                shape: {
-                    type: 'circle'
-                },
-                opacity: {
-                    value: 0.5,
-                    random: false
-                },
-                size: {
-                    value: 3,
-                    random: true
-                },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: '#ffffff',
-                    opacity: 0.4,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 2,
-                    direction: 'none',
-                    random: false,
-                    straight: false,
-                    out_mode: 'out',
-                    bounce: false
-                }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: {
-                        enable: true,
-                        mode: 'grab'
-                    },
-                    onclick: {
-                        enable: true,
-                        mode: 'push'
-                    },
-                    resize: true
-                },
-                modes: {
-                    grab: {
-                        distance: 140,
-                        line_linked: {
-                            opacity: 1
-                        }
-                    },
-                    push: {
-                        particles_nb: 4
-                    }
-                }
-            },
-            retina_detect: true
-        });
-    </script>
+    <!-- Added About Sections -->
+    <div class="about-sections">
+        <div class="about-left">
+            <h2>Who we are</h2>
+            <p>We are second-year UX design students at MIT Institute of Design, Pune, with a shared passion for designing meaningful experiences. Our diverse skills span UX research, AI-driven innovation, graphic design, and videography, shaping how users interact with digital interfaces.</p>
+        </div>
+        <div class="vertical-line"></div>
+        <div class="about-right">
+            <h2>Our vision</h2>
+            <p>To push the boundaries of design by merging creativity with technology, crafting experiences that are functional, engaging, and future-ready. We strive to create intuitive digital interactions that not only enhance user engagement but also drive meaningful change.</p>
+        </div>
+    </div>
+
+    <div class="team-container">
+        <h1>Members</h1>
+        <div class="team-members">
+            <!-- Team member cards (same content as original) -->
+            <!-- Kishan -->
+            <div class="team-member">
+                <img src="allFiles/aboutus_assets/kishan.jpg" alt="Kishan">
+                <h3>Kishan</h3>
+                <p>Visual Designer</p>
+                <div class="member-description">
+                    <p>He is a skilled graphic designer from Malappuram, Kerala, blending illustration with UX design to create visually striking and intuitive experiences. His keen eye for detail and deep understanding of aesthetics help craft compelling digital interfaces. Passionate about user engagement, he leverages color theory, typography, and emerging design trends to create innovative and immersive experiences. <br> <br> <br></p>
+                </div>
+                <a href="allFiles/webpage.html" class="portfolio-cta">Portfolio →</a>
+
+            </div>
+
+            <!-- Shreyas -->
+            <div class="team-member">
+                <img src="allFiles/aboutus_assets/shreyas.png" alt="Shreyas">
+                <h3>Shreyas</h3>
+                <p>UX Designer</p>
+                <div class="member-description">
+                    <p>He is a dedicated UI/UX designer from Kochi, Kerala, pursuing a UX Design degree at MIT-ID. With hands-on experience, including an internship at Jio, he enhances digital interfaces through research and prototyping. He is currently a UX Design intern at Nurdd. Passionate about user-centered design, he shares projects on Behance, merging aesthetics with functionality to create impactful solutions. <br> <br> <br></p>
+                </div>
+                <a href="allFiles/Main Website.html" class="portfolio-cta">Portfolio →</a>
+
+            </div>
+
+            <!-- Navaneeth -->
+            <div class="team-member">
+                <img src="allFiles/aboutus_assets/navaneeth.jpeg" alt="Navaneeth">
+                <h3>Navaneeth</h3>
+                <p>Design Researcher</p>
+                <div class="member-description">
+                    <p>He is a UX and Data Science enthusiast from Thrissur, Kerala, pursuing a B.Des at MIT-ID Pune and a B.S at IIT-Madras. With expertise in UX research, 3D design, and AI-driven innovation, he has presented research at ICoRD'25 and FDE'24. Having worked as Co-Head of Design at GreenBhumi and a UX intern at XIRCLS, he drives impactful solutions. His focus on ethical BCI aims to shape future communication. <br> <br> <br></p>
+                </div>
+                <a href="allFiles/indexPFnav.html" class="portfolio-cta">Portfolio →</a>
+
+            </div>
+
+            <!-- Abin -->
+            <div class="team-member">
+                <img src="allFiles/aboutus_assets/abinbose.jpg" alt="Abin">
+                <h3>Abin</h3>
+                <p>Interaction Designer</p>
+                <div class="member-description">
+                    <p>He is a versatile designer from Alappuzha, Kerala, specializing in photography, videography, digital interaction, and graphic design. Passionate about storytelling, he blends aesthetics with functionality to craft immersive experiences. Constantly exploring new techniques, he aims to push creative boundaries and redefine digital communication. <br> <br> <br></p>
+                </div>
+                <a href="allFiles/Abinportfolio 2/websiteabxn.html" class="portfolio-cta">Portfolio →</a>
+
+            </div>
+        </div>
+    </div>
+    <div class="fun-fact-section">
+        <div class="fun-fact-container">
+            <div class="fun-fact-image">
+                <img src="allFiles/aboutus_assets/kerala.png">
+            </div>
+            <div class="fun-fact-content">
+                <h2>Fun Fact</h2>
+                <p>In a class of 83 diverse UX design students at MIT Institute of Design, Pune, our team shares a unique commonality—we all hail from Kerala, India. Despite coming from different backgrounds and specializations, our shared cultural roots have fostered a deep sense of collaboration and creativity. <br> <br> (Hence the name "GenesisBook")</p>
+            </div>
+        </div>
+    </div>
+    <div class="contact-section">
+        <div class="contact-container">
+            <h2>Get in Touch</h2>
+            <p>For collaborations, project inquiries, or insightful discussions on design, user experience, and innovation, we welcome the opportunity to connect. Whether you're looking for creative solutions, industry insights, or potential partnerships, our team is always eager to engage in meaningful conversations. Reach out to explore how our expertise can contribute to impactful and user-centric design experiences.</p>
+            <a href="allFiles/index-3.html" class="contact-cta">Start a Conversation →</a>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Designed & Developed by GenesisBook<br>
+        © 2025 | UX Enthusiasts | MIT-ID Pune</p>
+    </div>
+
+    <script src="allFiles/about-script.js"></script>
 </body>
 </html>
