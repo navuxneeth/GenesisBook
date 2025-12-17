@@ -50,9 +50,9 @@
             // Allow the form to submit normally to PHP
             // If PHP is not available, we'll redirect after a delay
             setTimeout(function() {
-                // Check if we're still on the same page (PHP didn't redirect)
-                // In that case, redirect to root
-                if (window.location.pathname.includes('index.html')) {
+                // Check if we're still on the login page (PHP didn't redirect)
+                var currentPath = window.location.pathname;
+                if (currentPath.indexOf('allFiles') !== -1) {
                     window.location.href = '../index.html';
                 }
             }, 1000);
